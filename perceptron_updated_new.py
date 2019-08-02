@@ -7,11 +7,11 @@ def calc_wt(x,t):
         weights.append(0)
     cnt = 0
     length1 = len(t)
-    learning_rate = 1
+    learning_rate = float(input("Specify learning rate: "))
     cnot = 1
     while(cnot == 1):
         for i in range(length1):
-            #print(weights)
+            print(weights)
             yin = weights[len(x[0])]
             for j in range(len(x[0])):
                 yin += weights[j]*x[i][j]
@@ -33,9 +33,9 @@ def calc_wt(x,t):
                 cnt = 0
                 for a in range(len(x[0])+1):
                     if a != len(x[0]):
-                        weights[a] += (t[i]*x[i][a])
+                        weights[a] += (learning_rate*t[i]*x[i][a])
                     else:
-                        weights[a] += t[i]
+                        weights[a] += (learning_rate*t[i])
             #time.sleep(5)
         if cnt == len(x):
             cnot = 0
@@ -43,6 +43,7 @@ def calc_wt(x,t):
     return(weights)
 
 x = [[1,1],[1,-1],[-1,1],[-1,-1]]
+#x = list(input("enter the data set: "))
 y = [-1,1,-1,-1]
+#y = list(input("enter the target output: "))
 print(calc_wt(x,y))
-
