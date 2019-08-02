@@ -11,7 +11,7 @@ def calc_wt(x,t):
     cnot = 1
     while(cnot == 1):
         for i in range(length1):
-            print(weights)
+            #print(weights)
             yin = weights[len(x[0])]
             for j in range(len(x[0])):
                 yin += weights[j]*x[i][j]
